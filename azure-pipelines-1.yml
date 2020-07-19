@@ -1,4 +1,14 @@
 # ASP.NET Core (.NET Framework)
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'
+    azureResourceManagerConnection: 'Azure subscription 1(b43b08fc-7cfc-435a-88c5-2c210841b25d)'
+    subscriptionId: 'b43b08fc-7cfc-435a-88c5-2c210841b25d'
+    action: 'Create Or Update Resource Group'
+    resourceGroupName: 'azure-6430'
+    location: 'East US'
+    templateLocation: 'Linked artifact'
+    deploymentMode: 'Incremental'
 # Build and test ASP.NET Core projects targeting the full .NET Framework.
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
