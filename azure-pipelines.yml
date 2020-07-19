@@ -38,3 +38,15 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+
+- task: SonarSource.sonarqube.14178a83790a05c609a667dd3822fd826ad6435c.SonarQubePrepare@4
+  displayName: 'Prepare analysis on SonarQube'
+  inputs:
+    SonarQube: 'SonarQube Service Connection'
+    projectKey: MyShuttle
+    projectName: MyShuttle
+- task: SonarSource.sonarqube.14178a83790a05c609a667dd3822fd826ad6435c.SonarQubeAnalyze@4
+  displayName: 'Run Code Analysis'
+- task: SonarSource.sonarqube.14178a83790a05c609a667dd3822fd826ad6435c.SonarQubePublish@4
+  displayName: 'Publish Quality Gate Result
